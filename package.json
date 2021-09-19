@@ -1,10 +1,10 @@
 {
   "name": "chialiangmermer.github.io",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -20,10 +20,15 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "marked": "^3.0.4",
+    "market": "^1.0.0",
+    "method-override": "^3.0.0",
     "mongodb": "^4.1.2",
-    "mongoose": "^6.0.6"
+    "mongoose": "^6.0.6",
+    "slugify": "^1.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
-  }
+  },
+  "description": ""
 }

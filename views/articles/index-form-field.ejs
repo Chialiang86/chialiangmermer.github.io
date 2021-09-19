@@ -1,0 +1,23 @@
+<div class="edit-block">
+    <div class="article-text" id="article-title">Title</div>
+    <input type="text" required value="<%= article.title %>" name="title" class="edit-text" id="edit-title">
+</div>
+<div class="edit-block">
+    <div class="article-text" id="article-tags">Tags</div>
+    <input type="text" required value="<%= article.tags %>" name="tags" class="edit-text" id="edit-tags">
+</div>
+<div class="edit-block">
+    <div class="article-text" id="article-description">Description</div>
+    <textarea name="description" class="edit-text" id="edit-description">
+        <%= article.description %> 
+    </textarea>
+</div>
+<div class="edit-block">
+    <div class="article-text" id="article-content">Content</div>
+    <textarea name="content" class="edit-text" id="edit-content">
+        <%= article.content %> 
+    </textarea>
+</div>
+
+<a href="/" class="cancel-button">Cancel</a>
+<button type="submit" class="submit-button">Save</button>

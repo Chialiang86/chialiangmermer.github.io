@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/show-article.css">
+    <script src="../server.js"></script>
+    <title>Andy Profile</title>
+</head>
+
+<body>
+    <nav class="top-bar">
+        <div class="logo"></div>
+    </nav>
+    <div class="background">
+        <div class="panel">
+            <div class="panel-background">
+                <div class="panel-image"> </div>
+            </div>
+            <div class="panel-content">
+                <h2 class="panel-content-title">良程吉食</h2>
+                <p class="panel-content-brief">拿著吉他邊進食邊 debug 的生活日常</p>
+                <ul class="panel-content-experience">
+                    <li>新竹高中</li>
+                    <li>成功大學 資工系</li>
+                    <li>陽明交通大學 網路工程所</li>
+                </ul>
+                <div class="panel-content-link">
+                    <a href="https://www.facebook.com/profile.php?id=100002614016172" target="_blank">
+                        <div class="panel-content-fb"></div>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <div class="panel-content-ig"></div>
+                    </a>
+                    <a href="https://github.com/Chialiang86" target="_blank">
+                        <div class="panel-content-github"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="article-container">
+            <div class="operate-block">
+                <a href="/" class="operate-button" id="operate-all">All Articles</a>
+                <a href="/articles/edit/<%= article.slug %>" class="operate-button" id="operate-edit">Edit</a>
+                <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="operate-form">
+                    <button class="operate-button" id="operate-remove">Remove</button>
+                </form>
+            </div>
+            <h2 class="article-title"><%= article.title %></h2>
+            <h4 class="article-time"><%= article.timeStamp %></h4>
+            <div class="article-tags"><%= "tags: " + article.tags %></div>
+            <div class="article-content"><%= article.content %></div>
+        </div>
+    </div>
+</body>
+
+</html>
