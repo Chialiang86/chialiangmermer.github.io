@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/profile.css">
+    <link rel="stylesheet" href="./../../style/profile.css">
     <script src="../server.js"></script>
     <title>Andy Profile</title>
 </head>
@@ -61,9 +61,9 @@
                     </div>
                     <div class="article-preview-image"></div>
                     <div class="article-preview-content">
-                        <%= article.content %>
+                        <%= article.description %>
                     </div>
-                    <a href="articles/<%= article.slug %>" class="article-continue">繼續閱讀</a>
+                    <a href="articles/<%= (article.slug).replace(/[^a-zA-Z0-9_\s-\u3400-\u9FBF]/g,'') %>" class="article-continue">繼續閱讀</a>
                 </section>
             <% }) %>
         </div>

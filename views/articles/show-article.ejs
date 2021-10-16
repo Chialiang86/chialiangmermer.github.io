@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/show-article.css">
-    <script src="../server.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./../../style/show-article.css">
+    <script src="./../../server.js"></script>
     <title>Andy Profile</title>
 </head>
 
@@ -46,7 +47,7 @@
         <div class="article-container">
             <div class="operate-block">
                 <a href="/" class="operate-button" id="operate-all">All Articles</a>
-                <a href="/articles/edit/<%= article.slug %>" class="operate-button" id="operate-edit">Edit</a>
+                <a href="/articles/edit/<%= article.id %>" class="operate-button" id="operate-edit">Edit</a>
                 <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="operate-form">
                     <button class="operate-button" id="operate-remove">Remove</button>
                 </form>
@@ -54,7 +55,7 @@
             <h2 class="article-title"><%= article.title %></h2>
             <h4 class="article-time"><%= article.timeStamp %></h4>
             <div class="article-tags"><%= "tags: " + article.tags %></div>
-            <div class="article-content"><%= article.content %></div>
+            <div class="article-content"><%- article.sanitizedHtml %></div>
         </div>
     </div>
 </body>

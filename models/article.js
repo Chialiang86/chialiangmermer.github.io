@@ -14,6 +14,9 @@ function formatDate(raw) {
 const mongoose = require('mongoose')
 const marked = require('marked')
 const slugify = require('slugify')
+const createDomPurifier = require('dompurify')
+const { JSDOM } = require('jsdom')
+const dompurify = createDomPurifier(new JSDOM().window)
 
 const articleSchema = new mongoose.Schema({
     title: {
@@ -42,12 +45,23 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    sanitizedHtml: {
+        type: String,
+        required: true
     }
 })
 
 articleSchema.pre('validate', function(next) {
     if (this.title) {
         this.slug = slugify(this.title, { lower: true, strict: true})
+    }
+
+    if (this.content) {
+        this.sanitizedHtml = dompurify.sanitize(marked(this.content)) // get rid of malicious code from html, js
+        console.log('good')
+    } else {
+        console.log('error')
     }
 
     next()

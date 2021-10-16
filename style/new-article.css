@@ -265,6 +265,13 @@ html {
         align-items: center;
     }
 
+    .article-mode {
+        padding: 15px;
+        font-size: 4rem;
+        color: #006d77;
+        letter-spacing: 3px;
+    }
+
     .article-container form {
         width: 90%;
     }
